@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import firebase from 'firebase/app';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserMetadata, User, IdTokenResult } from '@firebase/auth-types';
 import { FBUser} from 'src/app/models/FBUser';
 import { map } from 'rxjs/operators';
@@ -15,7 +14,7 @@ import { UserRecord } from '../models/UserRecord';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   httpOptions: any = {
     observe: 'response'

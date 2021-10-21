@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { UserService } from 'src/app/services/user.service';
-import { AuthService } from 'src/app/services/auth.service';
 import { FBUser} from 'src/app/models/FBUser';
 
 
@@ -21,7 +20,7 @@ export class CreateuserComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.form = this.formBuilder.group({
       firstName: '',
       lastName: '',

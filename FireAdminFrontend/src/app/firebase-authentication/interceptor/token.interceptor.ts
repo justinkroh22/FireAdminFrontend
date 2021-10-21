@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { mergeMap, map } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -19,11 +19,11 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    return this.authService.getToken().pipe(
+    return this.authService.userToken$.pipe(
         mergeMap((token: String | null | undefined) => {
             
             if (token) {
-                // clone and modify the request
+
                 request = request.clone({
                   headers: new HttpHeaders({
                     'Content-Type': 'application/json',
@@ -31,12 +31,10 @@ export class TokenInterceptor implements HttpInterceptor {
                   }),
                 });
 
-                console.log(token)
+                //console.log(token)
             }
             
             return next.handle(request);
     }));
   }
-
-
 }

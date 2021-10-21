@@ -2,9 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { FBUser } from 'src/app/models/FBUser';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-//import {AngularFireAuth} from '@angular/fire/auth';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { first } from 'rxjs/operators';
 import { UserRecord } from 'src/app/models/UserRecord';
@@ -28,7 +26,7 @@ export class UserviewComponent implements OnInit {
   @Input() user?: UserRecord;
 
   constructor(private formBuilder: FormBuilder, private afStorage: AngularFireStorage, private userService: UserService, 
-    public authService: AuthService, private route: ActivatedRoute) {
+ private route: ActivatedRoute) {
       this.formDisplayName = this.formBuilder.group({
         firstName: '',
         lastName: '',

@@ -3,7 +3,6 @@ import { FBUser } from 'src/app/models/FBUser';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { AuthService } from 'src/app/services/auth.service';
 import { first } from 'rxjs/operators';
 import { UserRecord } from 'src/app/models/UserRecord';
 
@@ -16,7 +15,7 @@ export class TablerowComponent implements OnInit {
 
   @Input() user?: UserRecord;
 
-  constructor(private userService: UserService, public authService: AuthService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
 
   viewUser() {

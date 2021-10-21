@@ -8,10 +8,10 @@
             <!-- <li class="nav-item active">
                 <a class="nav-link" *ngIf="authService.isLoggedIn() | async" routerLink="/" routerLinkActive="active">Log Viewer<span class="sr-only">(current)</span></a>
             </li> -->
-            <li class="nav-item" *ngIf="authService.isLoggedIn() | async">
+            <li class="nav-item" *ngIf="authService.isLoggedIn$ | async">
                 <a class="nav-link" routerLink="/Login" routerLinkActive="active" (click)="logout();">Log Out</a>
             </li>
-            <li class="nav-item" *ngIf="(authService.isLoggedIn() | async) == null">
+            <li class="nav-item" *ngIf="(authService.isLoggedIn$ | async) == null">
                 <a class="nav-link" routerLink="/Login" routerLinkActive="active">Employee Login</a>
             </li>
         </ul>

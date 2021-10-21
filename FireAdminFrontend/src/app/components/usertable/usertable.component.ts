@@ -1,6 +1,5 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserMetadata, User, IdTokenResult } from '@firebase/auth-types';
 import { FBUser} from 'src/app/models/FBUser';
 import { keyframes } from '@angular/animations';
@@ -13,7 +12,7 @@ import { UserRecord } from 'src/app/models/UserRecord';
 })
 export class UsertableComponent implements OnInit {
 
-  constructor(private userService: UserService, public authService: AuthService) { }
+  constructor(private userService: UserService) { }
 
   userList: UserRecord[] = [];
 

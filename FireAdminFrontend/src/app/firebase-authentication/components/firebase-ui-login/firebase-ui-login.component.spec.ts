@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { FirebaseUiLoginComponent } from './firebase-ui-login.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('FirebaseUiLoginComponent', () => {
+  let component: FirebaseUiLoginComponent;
+  let fixture: ComponentFixture<FirebaseUiLoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [ FirebaseUiLoginComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(FirebaseUiLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

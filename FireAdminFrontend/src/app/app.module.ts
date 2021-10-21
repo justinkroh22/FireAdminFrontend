@@ -4,9 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { LoginComponent } from './components/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './interceptor/token.interceptor';
 
 
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
@@ -24,26 +22,27 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import { UserPipe } from './pipes/user.pipe';
+import { FirebaseAuthenticationModule } from './firebase-authentication/firebase-authentication.module';
+import { TokenInterceptor } from './firebase-authentication/interceptor/token.interceptor';
 // import firebase from 'firebase';
 // import * as firebaseui from 'firebaseui';
 
 
-const firebaseUiAuthConfig: any = {
-  signInFlow: 'popup',
+// const firebaseUiAuthConfig: any = {
+//   signInFlow: 'popup',
 
-  signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
-  ],
-  tosUrl: '',
-  privacyPolicyUrl: '',
-  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
-};
+//   signInOptions: [
+//       firebase.auth.EmailAuthProvider.PROVIDER_ID
+//   ],
+//   tosUrl: '',
+//   privacyPolicyUrl: '',
+//   credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
+// };
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    LoginComponent,
     NavbarComponent,
     UsertableComponent,
     TablerowComponent,
@@ -55,20 +54,22 @@ const firebaseUiAuthConfig: any = {
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    // AngularFireAuthModule,
+    // FirebaseUIModule.forRoot(FirebaseAuthenticationModule.),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FirebaseAuthenticationModule
   ],
-  providers: [
+  // providers: [
 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
-  ],
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: TokenInterceptor,
+  //     multi: true
+  //   }
+  // ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
